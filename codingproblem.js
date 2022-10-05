@@ -35,6 +35,14 @@
      }, sleepTime);
    });
  };
+
+ function getConcurrencyMax(successCount, concurrencyMax){
+  if(successCount<= numberOfTasks/2){
+       return concurrencyMax;
+  } else {
+    return concurrencyMax/2;
+  }
+ }
  
  /**
   * Manage and push promise and resolve concurrency
@@ -53,6 +61,7 @@
            doTask(taskList.shift(), currentConcurrencyTaskId).then(successHandler);
          }
        };
+       concurrencyMax =  getConcurrencyMax(successCount, concurrencyMax);
        currentPromises.push(doTask(taskList.shift(), currentPromises.length).then(successHandler));
      }
    });

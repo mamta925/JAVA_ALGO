@@ -18,6 +18,6 @@
 
         MyThread t = new MyThread();// Thread Instantiation
         t.start();// STARTING OF A THREAD 
-        
+        System.out.println("main");
     }
  }

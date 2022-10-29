@@ -16,8 +16,14 @@
  class ThreadDemo {
     public static void main(String[] args) {
 
+        Integer X = new Integer(10);
+        String s1 = new String("Mamta");
+        String s2 = "Mamta";
+        System.out.println(s2 == s1.intern());
+       // System.out.println(X==Y);
         MyThread t = new MyThread();// Thread Instantiation
         t.start();// STARTING OF A THREAD 
+        
         System.out.println("main");
     }
  }
